@@ -6,12 +6,38 @@ namespace _75.SortColors
     {
         static void Main(string[] args)
         {
-            var colors = new int[]{2,0,1,2,1,0,0,0,2,1,1,1,1,1,1,1,1,1,0};
+            var colors = new int[] { 2, 0, 1, 2, 1, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 };
             SortColors(colors);
             Console.WriteLine(string.Join(", ", colors));
         }
 
         public static void SortColors(int[] nums)
+        {
+            var redIndex = 0;
+            var blueIndex = nums.Length - 1;
+            int i = 0;
+            while (i <= blueIndex)
+            {
+                if (nums[i] == 0)
+                {
+                    Swap(nums, i, redIndex);
+                    redIndex++;
+                    i++;
+                }
+                else if (nums[i] == 2)
+                {
+                    Swap(nums, i, blueIndex);
+                    blueIndex--;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+        }
+
+        public static void SortColors2(int[] nums)
         {
             int redIndex = 0, blueIndex = nums.Length - 1;
             var m = nums.Length / 2;
@@ -23,7 +49,7 @@ namespace _75.SortColors
             while (!beyondBlue || !beyondRed)
             {
                 if (i > blueIndex || i < redIndex || nums[i] == 1)
-                {                    
+                {
                     i = d ? i + step : i - step;
                     step++;
                     d = !d;
