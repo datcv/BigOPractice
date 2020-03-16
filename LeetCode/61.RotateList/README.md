@@ -2,7 +2,6 @@
 https://leetcode.com/problems/rotate-list/  
 Given a linked list, rotate the list to the right by k places, where k is non-negative.  
 
-Note that you cannot sell a stock before you buy one.  
 **Example 1:**  
 ```
 Input: 1->2->3->4->5->NULL, k = 2
